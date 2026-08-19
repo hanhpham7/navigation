@@ -1,0 +1,214 @@
+/* ===== HEADER ===== */
+
+.aila-header {
+  background: #0b2f57;
+  color: #fff;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== TOP UTILITY BAR ===== */
+
+.aila-utility-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 32px;
+  background: #0b2f57;
+}
+
+.aila-logo img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.aila-utility-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== SEARCH ===== */
+
+.aila-search {
+  width: 220px;
+}
+
+.aila-search input {
+  width: 100%;
+  height: 28px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 0 12px;
+  font-size: 12px;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+/* ===== ICONS ===== */
+
+.aila-icon-btn {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aila-icon-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+}
+
+.aila-tooltip {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111827;
+  color: white;
+  padding: 4px 8px;
+  font-size: 11px;
+  border-radius: 4px;
+  white-space: nowrap;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.15s;
+}
+
+.aila-icon-btn:hover .aila-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===== ACCOUNT MENU ===== */
+
+.aila-account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: white;
+  background: transparent;
+  border: none;
+
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.aila-account-trigger:hover {
+  color: #bae6fd;
+}
+
+/* ===== DROPDOWN ===== */
+
+.aila-dropdown {
+  position: absolute;
+  right: 0;
+  top: 32px;
+
+  width: 288px;
+  background: white;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+
+  box-shadow:
+    0 10px 15px rgba(0,0,0,.10),
+    0 4px 6px rgba(0,0,0,.05);
+
+  z-index: 1000;
+}
+
+.aila-dropdown-section {
+  padding: 10px 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.aila-dropdown-section:last-child {
+  border-bottom: none;
+}
+
+.aila-dropdown-heading {
+  margin-bottom: 8px;
+
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+
+  color: #64748b;
+}
+
+.aila-dropdown a {
+  display: block;
+  padding: 4px 0;
+
+  color: #334155;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.aila-dropdown a:hover {
+  color: #0b2f57;
+}
+
+.aila-logout {
+  color: #b91c1c !important;
+  font-weight: 600;
+}
+
+/* ===== MAIN NAVIGATION ===== */
+
+.aila-main-nav {
+  border-top: 1px solid rgba(255,255,255,.20);
+  padding: 0 32px;
+  background: #0b2f57;
+}
+
+.aila-main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  height: 36px;
+}
+
+.aila-main-nav a {
+  color: white;
+  text-decoration: none;
+
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.aila-main-nav a:hover {
+  color: #bae6fd;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 1024px) {
+  .aila-search {
+    width: 180px;
+  }
+
+  .aila-main-nav ul {
+    gap: 14px;
+  }
+}

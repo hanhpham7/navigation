@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AILA Navigation Mockup</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    /* =========================
+       MOCKUP WRAPPER
+    ========================= */
+
+    .mockup-page {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    .mockup-heading {
+      margin-bottom: 20px;
+    }
+
+    .mockup-label {
+      margin: 0 0 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #0369a1;
+    }
+
+    .mockup-heading h1 {
+      margin: 0;
+      font-size: 30px;
+      color: #020617;
+    }
+
+    .mockup-heading p {
+      max-width: 720px;
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.5;
+    }
+
+    .site-frame {
+      background: white;
+      border-radius: 28px;
+      overflow: visible;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+      border: 1px solid #e2e8f0;
+    }
+
+    .promo-bar {
+      background: #FCE1D6;
+      color: #0C1744;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 28px 28px 0 0;
+    }
+
+    /* =========================
+       AILA HEADER
+    ========================= */
+
+    .aila-header {
+      position: relative;
+      z-index: 20;
+      background: #0b2f57;
+      color: white;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      grid-template-rows: auto 36px;
+    }
+
+    .aila-utility-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #0b2f57;
+      grid-column: 2;
+      grid-row: 1;
+      padding: 14px 32px 4px 20px;
+    }
+
+    .aila-logo {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      padding: 8px 16px 0;
+    }
+
+    .aila-logo img {
+      width: 140px;
+      height: auto;
+      display: block;
+      transform: translateX(-8px);
+    }
+
+    .aila-utility-right {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    .aila-search {
+      width: 380px;
+      margin-right: auto;
+      position: relative;
+    }
+
+    .aila-search label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .aila-search input {
+      width: 100%;
+      height: 28px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      background: white;
+      padding: 0 12px;
+      font-size: 12px;
+      color: #0f172a;
+      outline: none;
+      padding-right: 36px;
+    }
+
+    .aila-search-icon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      width: 16px;
+      height: 16px;
+      transform: translateY(-50%);
+      stroke: #64748b;
+      stroke-width: 2;
+      fill: none;
+      pointer-events: none;
+    }
+
+    .aila-search input:focus {
+      border-color: #7dd3fc;
+      box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.45);
+    }
+
+    /* =========================
+       UTILITY ICON BUTTONS
+    ========================= */
+
+    .aila-icon-btn {
+      position: relative;
+      width: 28px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .aila-icon-btn svg {
+      width: 20px;
+      height: 20px;
+      stroke: white;
+      stroke-width: 2.5;
+      fill: none;
+    }
+
+    .aila-icon-btn:hover svg {
+      stroke: #bae6fd;
+    }
+
+    .aila-tooltip {
+      position: absolute;
+      top: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #111827;
+      color: white;
+      padding: 4px 8px;
+      font-size: 11px;
+      font-weight: 500;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, visibility 0.15s ease;
+      z-index: 100;
+    }
+
+    .aila-icon-btn:hover .aila-tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* =========================
+       ACCOUNT MENU
+    ========================= */
+
+    .aila-account {
+      position: relative;
+    }
+
+    .aila-account-trigger {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 28px;
+      border: none;
+      background: transparent;
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .aila-account-trigger:hover {
+      color: #bae6fd;
+    }
+
+    .aila-account-trigger svg {
+      width: 12px;
+      height: 12px;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      fill: none;
+      transition: transform 0.15s ease;
+    }
+
+    .aila-account-trigger[aria-expanded="true"] svg {
+      transform: rotate(180deg);
+    }
+
+    .aila-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 34px;
+      z-index: 1000;
+      width: 288px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      box-shadow:
+        0 10px 15px rgba(0, 0, 0, 0.10),
+        0 4px 6px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+
+    .aila-dropdown.is-open {
+      display: block;
+    }
+
+    .aila-dropdown-inner {
+      padding: 8px 0;
+    }
+
+    .aila-dropdown-section {
+      padding: 8px 16px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .aila-dropdown-section:last-child {
+      border-bottom: none;
+    }
+
+    .aila-dropdown-heading {
+      margin: 0 0 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #64748b;
+    }
+
+    .aila-dropdown a {
+      display: block;
+      padding: 4px 0;
+      color: #334155;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .aila-dropdown a:hover {
+      color: #0b2f57;
+    }
+
+    .aila-logout {
+      color: #b91c1c !important;
+      font-weight: 700;
+    }
+
+    .aila-logout:hover {
+      color: #991b1b !important;
+    }
+
+    /* =========================
+       MAIN NAVIGATION
+    ========================= */
+
+    .aila-main-nav {
+      background: #0b2f57;
+      grid-column: 2;
+      grid-row: 2;
+      padding: 0 32px 0 20px;
+    }
+
+    .aila-main-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      white-space: nowrap;
+    }
+
+    .aila-main-nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .aila-main-nav a:hover {
+      color: #bae6fd;
+    }
+
+    /* =========================
+       SAMPLE PAGE CONTENT
+    ========================= */
+
+    .hero {
+      background: linear-gradient(135deg, #f0f9ff, #ffffff, #f1f5f9);
+      padding: 64px 32px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #0072bc;
+      margin: 0 0 12px;
+    }
+
+    .hero h2 {
+      margin: 0;
+      max-width: 640px;
+      font-size: 48px;
+      line-height: 1.05;
+      color: #020617;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 20px 0 0;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #475569;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .primary-btn,
+    .secondary-btn {
+      border-radius: 999px;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary-btn {
+      border: none;
+      background: #0b2f57;
+      color: white;
+      box-shadow: 0 6px 16px rgba(11, 47, 87, 0.25);
+    }
+
+    .secondary-btn {
+      border: 1px solid #0b2f57;
+      background: white;
+      color: #0b2f57;
+    }
+
+    .design-notes {
+      background: white;
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      border: 1px solid #e2e8f0;
+    }
+
+    .design-notes-card {
+      background: #0b2f57;
+      color: white;
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    .design-notes-card h3 {
+      margin: 0 0 16px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #bae6fd;
+    }
+
+    .design-notes-card ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .design-notes-card li {
+      margin-bottom: 10px;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 900px) {
+      .aila-utility-bar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .aila-utility-right {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      .aila-search {
+        width: 220px;
+      }
+
+      .aila-main-nav ul {
+        overflow-x: auto;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="mockup-page">
+
+    <div class="mockup-heading">
+      <p class="mockup-label">Mockup</p>
+      <h1>AILA.org Navigation</h1>
+      <p>
+        Desktop header concept using the current public navigation labels, with utility actions moved above the lowered primary navigation.
+      </p>
+    </div>
+
+    <div class="site-frame">
+
+      <div class="promo-bar">
+        Deadline Extended - Now Save 25% Off the NEW Kurzban's Through August 20!
+      </div>
+
+      <header class="aila-header">
+
+        <!-- Logo spans the utility and primary navigation rows -->
+        <div class="aila-logo">
+          <img src="AILA_Navy50_Whitetext.png" alt="AILA" />
+        </div>
+
+        <!-- Utility Bar -->
+        <div class="aila-utility-bar">
+
+          <!-- Right Utility Area -->
+          <div class="aila-utility-right">
+
+            <!-- Search -->
+            <div class="aila-search">
+              <label for="site-search">Search AILA.org</label>
+              <input id="site-search" type="search" placeholder="Search AILA" />
+              <svg class="aila-search-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"></circle>
+                <path d="m20 20-4-4"></path>
+              </svg>
+            </div>
+
+            <!-- Help Center -->
+            <button class="aila-icon-btn" type="button" title="Help Center" aria-label="Help Center">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.1 9a3 3 0 1 1 5.8 1c-.5 1.4-2.1 1.8-2.6 3"></path>
+                <path d="M12 17h.01"></path>
+              </svg>
+              <span class="aila-tooltip">Help Center</span>
+            </button>
+
+            <!-- AILA Shop -->
+            <button class="aila-icon-btn" type="button" title="AILA Shop" aria-label="AILA Shop">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 2-1.6L23 6H6"></path>
+              </svg>
+              <span class="aila-tooltip">AILA Shop</span>
+            </button>
+
+            <!-- Account Menu -->
+            <div class="aila-account">
+              <button
+                class="aila-account-trigger"
+                type="button"
+                aria-expanded="false"
+                aria-controls="aila-account-menu"
+              >
+                Hello, Molly
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6"></path>
+                </svg>
+              </button>
+
+              <div class="aila-dropdown" id="aila-account-menu">
+                <div class="aila-dropdown-inner">
+
+                  <div class="aila-dropdown-section">
+                    <p class="aila-dropdown-heading">My AILA</p>
+                    <a href="#">Profile</a>
+                    <a href="#">Account Settings</a>
+                    <a href="#">Addresses</a>
+                    <a href="#">Change Password</a>
+                  </div>
+
+                  <div class="aila-dropdown-section">
+                    <p class="aila-dropdown-heading">Communications</p>
+                    <a href="#">Recent Postings</a>
+                    <a href="#">Email Subscriptions</a>
+                  </div>
+
+                  <div class="aila-dropdown-section">
+                    <p class="aila-dropdown-heading">Shop</p>
+                    <a href="#">Purchase History</a>
+                    <a href="#">Digital Library</a>
+                    <a href="#">My CLE</a>
+                  </div>
+
+                  <div class="aila-dropdown-section">
+                    <a href="#" class="aila-logout">Log Out</a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Main Navigation -->
+        <nav class="aila-main-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Membership</a></li>
+            <li><a href="#">Research Tools</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Events and Training</a></li>
+          </ul>
+        </nav>
+
+      </header>
+
+      <!-- Sample page content below header -->
+      <main class="hero">
+
+        <section>
+          <p class="hero-eyebrow">Member experience</p>
+          <h2>Enhance your law practice, build community, and promote justice.</h2>
+          <p>
+            This mockup keeps the existing top-level navigation visible, while making search, Help Center, Shop, and account access easier to scan before users choose a primary section.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-btn">Join AILA Today</button>
+            <button class="secondary-btn">View Recent Postings</button>
+          </div>
+        </section>
+
+        <aside class="design-notes">
+          <div class="design-notes-card">
+            <h3>Design notes</h3>
+            <ul>
+              <li>Navigation labels are compact and kept on one row.</li>
+              <li>Search is promoted from an icon to a small search field.</li>
+              <li>Help Center and AILA Shop use white utility icons with hover text.</li>
+              <li>Hello, Molly opens a structured My AILA dropdown.</li>
+              <li>The hamburger menu is removed from the desktop header.</li>
+            </ul>
+          </div>
+        </aside>
+
+      </main>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const accountButton = document.querySelector(".aila-account-trigger");
+      const dropdown = document.querySelector(".aila-dropdown");
+
+      accountButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        const isOpen = dropdown.classList.toggle("is-open");
+        accountButton.setAttribute("aria-expanded", String(isOpen));
+      });
+
+      document.addEventListener("click", function (event) {
+        const account = document.querySelector(".aila-account");
+
+        if (!account.contains(event.target)) {
+          dropdown.classList.remove("is-open");
+          accountButton.setAttribute("aria-expanded", "false");
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          dropdown.classList.remove("is-open");
+          accountButton.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
