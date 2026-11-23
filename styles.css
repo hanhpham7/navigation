@@ -1,7 +1,7 @@
 /* ===== HEADER ===== */
 
 .aila-header {
-  background: #0b2f57;
+  background: #1C2A5F;
   color: #fff;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
@@ -14,11 +14,11 @@
   align-items: center;
   justify-content: space-between;
   padding: 4px 32px;
-  background: #0b2f57;
+  background: #1C2A5F;
 }
 
 .aila-logo img {
-  height: 40px;
+  height: 69.3px;
   width: auto;
   display: block;
 }
@@ -27,12 +27,16 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
 }
 
 /* ===== SEARCH ===== */
 
 .aila-search {
-  width: 220px;
+  width: 230px;
+  position: absolute;
+  left: calc(50% - 65px);
+  transform: translateX(-50%);
 }
 
 .aila-search input {
@@ -77,7 +81,7 @@
   background: #111827;
   color: white;
   padding: 4px 8px;
-  font-size: 11px;
+  font-size: 15px;
   border-radius: 4px;
   white-space: nowrap;
 
@@ -102,7 +106,7 @@
   background: transparent;
   border: none;
 
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -143,17 +147,17 @@
 .aila-dropdown-heading {
   margin-bottom: 8px;
 
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: .05em;
 
-  color: #64748b;
+  color: #0C1744;
 }
 
 .aila-dropdown a {
   display: block;
-  padding: 4px 0;
+  padding: 4px 0 4px 4px;
 
   color: #334155;
   font-size: 14px;
@@ -165,16 +169,28 @@
 }
 
 .aila-logout {
-  color: #b91c1c !important;
+  color: #cc0000 !important;
+  font-size: 16px !important;
   font-weight: 600;
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+.aila-logout svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
 }
 
 /* ===== MAIN NAVIGATION ===== */
 
 .aila-main-nav {
   border-top: 1px solid rgba(255,255,255,.20);
-  padding: 0 32px;
-  background: #0b2f57;
+  padding: 5px 32px;
+  background: #1C2A5F;
 }
 
 .aila-main-nav ul {
@@ -205,7 +221,7 @@
 
 @media (max-width: 1024px) {
   .aila-search {
-    width: 180px;
+    width: 190px;
   }
 
   .aila-main-nav ul {

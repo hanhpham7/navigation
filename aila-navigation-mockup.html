@@ -6,15 +6,22 @@
   <title>AILA Navigation Mockup</title>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.adobe.com/fonts/freight-text');
+
     * {
       box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Public Sans", Arial, sans-serif;
       background: #f1f5f9;
       color: #0f172a;
+    }
+
+    h1, h2, h3 {
+      font-family: "Freight Text", serif;
     }
 
     /* =========================
@@ -54,6 +61,10 @@
       line-height: 1.5;
     }
 
+    .mockup-heading p:last-child {
+      color: #000000;
+    }
+
     .site-frame {
       background: white;
       border-radius: 28px;
@@ -63,7 +74,7 @@
     }
 
     .promo-bar {
-      background: #FCE1D6;
+      background: #d1ece6;
       color: #0C1744;
       text-align: center;
       font-size: 14px;
@@ -79,18 +90,18 @@
     .aila-header {
       position: relative;
       z-index: 20;
-      background: #0b2f57;
+      background: #1C2A5F;
       color: white;
       display: grid;
       grid-template-columns: 230px 1fr;
-      grid-template-rows: auto 36px;
+      grid-template-rows: auto 46px;
     }
 
     .aila-utility-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #0b2f57;
+      background: #1C2A5F;
       grid-column: 2;
       grid-row: 1;
       padding: 14px 32px 4px 20px;
@@ -106,8 +117,8 @@
     }
 
     .aila-logo img {
-      width: 140px;
-      height: auto;
+      height: 69.3px;
+      width: auto;
       display: block;
       transform: translateX(-8px);
     }
@@ -118,6 +129,7 @@
       justify-content: flex-end;
       gap: 12px;
       width: 100%;
+      position: relative;
     }
 
     /* =========================
@@ -125,9 +137,10 @@
     ========================= */
 
     .aila-search {
-      width: 380px;
-      margin-right: auto;
-      position: relative;
+      width: 390px;
+      position: absolute;
+      left: calc(50% - 65px);
+      transform: translateX(-50%);
     }
 
     .aila-search label {
@@ -242,7 +255,7 @@
       border: none;
       background: transparent;
       color: white;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 600;
       cursor: pointer;
       padding: 0;
@@ -300,16 +313,16 @@
 
     .aila-dropdown-heading {
       margin: 0 0 8px;
-      font-size: 11px;
+      font-size: 14px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      color: #64748b;
+      color: #0C1744;
     }
 
     .aila-dropdown a {
       display: block;
-      padding: 4px 0;
+      padding: 4px 0 4px 4px;
       color: #334155;
       font-size: 14px;
       text-decoration: none;
@@ -320,8 +333,20 @@
     }
 
     .aila-logout {
-      color: #b91c1c !important;
+      color: #cc0000 !important;
+      font-size: 16px !important;
       font-weight: 700;
+      display: flex !important;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .aila-logout svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
     }
 
     .aila-logout:hover {
@@ -333,10 +358,10 @@
     ========================= */
 
     .aila-main-nav {
-      background: #0b2f57;
+      background: #1C2A5F;
       grid-column: 2;
       grid-row: 2;
-      padding: 0 32px 0 20px;
+      padding: 5px 32px 5px 20px;
     }
 
     .aila-main-nav ul {
@@ -362,13 +387,144 @@
       color: #bae6fd;
     }
 
+    .aila-nav-item {
+      position: relative;
+    }
+
+    .aila-research-menu {
+      position: absolute;
+      top: 36px;
+      left: 0;
+      width: 720px;
+      padding: 24px;
+      background: #ffffff;
+      border: 1px solid #dbe3ef;
+      border-radius: 8px;
+      box-shadow: 0 16px 32px rgba(12, 23, 68, 0.18);
+      transform: translateY(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+      z-index: 1000;
+    }
+
+    .aila-career-menu {
+      left: auto;
+      right: 0;
+    }
+
+    .aila-nav-item:hover .aila-research-menu,
+    .aila-nav-item:focus-within .aila-research-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .aila-research-menu-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr 1fr;
+      gap: 24px;
+    }
+
+    .aila-news-menu-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .aila-equal-menu-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .aila-membership-menu-grid {
+      grid-template-columns: 1.2fr 1fr 0.8fr;
+    }
+
+    .aila-research-menu-column {
+      min-width: 0;
+    }
+
+    .aila-research-menu-heading {
+      margin: 0 0 10px;
+      color: #1C2A5F;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .aila-menu-subheading {
+      margin-top: 18px;
+    }
+
+    .aila-research-menu-column a {
+      display: block;
+      margin: 0;
+      padding: 6px 0;
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .aila-research-menu-column a:hover,
+    .aila-research-menu-column a:focus {
+      color: #0072bc;
+    }
+
+    /* =========================
+       LOGGED OUT STATE
+    ========================= */
+
+    .aila-header.logged-out .aila-account {
+      display: none;
+    }
+
+    .aila-login-btn {
+      display: none;
+      height: 28px;
+      padding: 0 20px;
+      background: white;
+      color: #1C2A5F;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      align-items: center;
+      justify-content: center;
+      white-space: nowrap;
+    }
+
+    .aila-login-btn:hover {
+      background-color: #f1f5f9;
+    }
+
+    .aila-header.logged-out .aila-login-btn {
+      display: block;
+    }
+
+    .aila-main-nav-logged-in {
+      display: block;
+    }
+
+    .aila-main-nav-logged-out {
+      display: none;
+    }
+
+    .aila-header.logged-out .aila-main-nav-logged-in {
+      display: none;
+    }
+
+    .aila-header.logged-out .aila-main-nav-logged-out {
+      display: block;
+    }
+
     /* =========================
        SAMPLE PAGE CONTENT
     ========================= */
 
     .hero {
       background: linear-gradient(135deg, #f0f9ff, #ffffff, #f1f5f9);
-      padding: 64px 32px;
+      padding: 44px 32px;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       gap: 32px;
@@ -409,7 +565,7 @@
 
     .primary-btn,
     .secondary-btn {
-      border-radius: 999px;
+      border-radius: 8px;
       padding: 12px 24px;
       font-size: 14px;
       font-weight: 700;
@@ -418,9 +574,13 @@
 
     .primary-btn {
       border: none;
-      background: #0b2f57;
+      background: #1C2A5F;
       color: white;
-      box-shadow: 0 6px 16px rgba(11, 47, 87, 0.25);
+      transition: background-color 0.2s ease;
+    }
+
+    .primary-btn:hover {
+      background-color: #0072bc;
     }
 
     .secondary-btn {
@@ -438,7 +598,7 @@
     }
 
     .design-notes-card {
-      background: #0b2f57;
+      background: #1C2A5F;
       color: white;
       border-radius: 22px;
       padding: 24px;
@@ -464,8 +624,24 @@
       margin-bottom: 10px;
     }
 
-    /* =========================
-       RESPONSIVE
+    /* =========================       HERO IMAGE SECTION
+    ========================= */
+
+    .hero-image-section {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    /* =========================       RESPONSIVE
     ========================= */
 
     @media (max-width: 900px) {
@@ -481,7 +657,10 @@
       }
 
       .aila-search {
-        width: 220px;
+        width: 230px;
+        position: relative;
+        left: auto;
+        transform: none;
       }
 
       .aila-main-nav ul {
@@ -507,7 +686,7 @@
       <p class="mockup-label">Mockup</p>
       <h1>AILA.org Navigation</h1>
       <p>
-        Desktop header concept using the current public navigation labels, with utility actions moved above the lowered primary navigation.
+        Desktop header concept using the current logged-in and logged-out navigation labels, with utility actions moved above the lowered primary navigation.
       </p>
     </div>
 
@@ -560,7 +739,7 @@
               <span class="aila-tooltip">AILA Shop</span>
             </button>
 
-            <!-- Account Menu -->
+            <!-- Account Menu (Logged In) -->
             <div class="aila-account">
               <button
                 class="aila-account-trigger"
@@ -586,41 +765,324 @@
                   </div>
 
                   <div class="aila-dropdown-section">
-                    <p class="aila-dropdown-heading">Communications</p>
-                    <a href="#">Recent Postings</a>
-                    <a href="#">Email Subscriptions</a>
+                    <p class="aila-dropdown-heading">Email Subscriptions</p>
+                    <a href="#">Recent Posting Alerts</a>
+                    <a href="#">Informational Emails</a>
+                    <a href="#">Listservs</a>
                   </div>
 
                   <div class="aila-dropdown-section">
                     <p class="aila-dropdown-heading">Shop</p>
-                    <a href="#">Purchase History</a>
+                    <a href="#">Order History</a>
                     <a href="#">Digital Library</a>
                     <a href="#">My CLE</a>
                   </div>
 
                   <div class="aila-dropdown-section">
-                    <a href="#" class="aila-logout">Log Out</a>
+                    <a href="#" class="aila-logout">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M10 17l5-5-5-5"></path>
+                        <path d="M15 12H3"></path>
+                        <path d="M14 5h5v14h-5"></path>
+                      </svg>
+                      <span>LOG OUT</span>
+                    </a>
                   </div>
 
                 </div>
               </div>
             </div>
 
+            <!-- Login Button (Logged Out) -->
+            <button class="aila-login-btn" type="button">
+              Sign In
+            </button>
+
           </div>
         </div>
 
-        <!-- Main Navigation -->
-        <nav class="aila-main-nav" aria-label="Primary navigation">
+        <!-- Main Navigation - Logged In -->
+        <nav class="aila-main-nav aila-main-nav-logged-in" aria-label="Primary navigation">
           <ul>
-            <li><a href="#">About</a></li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">Research</a>
+              <div class="aila-research-menu">
+                <div class="aila-research-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Find &amp; Browse</p>
+                    <a href="#">Advanced Search</a>
+                    <a href="#">Research by Topic</a>
+                    <a href="#">My Research</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Guidance &amp; Publications</p>
+                    <a href="#">Books (Print &amp; Digital)</a>
+                    <a href="#">AILA Law Journal</a>
+                    <a href="#">Practice Pointers &amp; Alerts</a>
+                    <a href="#">Litigation Resource Center</a>
+                    <a href="#">Client Flyers</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Research Tools</p>
+                    <a href="#">AILALink</a>
+                    <a href="#">Fastcase</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">News, Issues, &amp; Advocacy</a>
+              <div class="aila-research-menu">
+                <div class="aila-research-menu-grid aila-news-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Stay Current</p>
+                    <a href="#">Immigration News</a>
+                    <a href="#">Recent Postings</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Press Releases</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Issues &amp; Trends</p>
+                    <a href="#">Featured Issues</a>
+                    <a href="#">Trend Trackers</a>
+                    <a href="#">Policy Briefs</a>
+                    <a href="#">Liaison Meetings</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Take Action</p>
+                    <a href="#">Advocacy Center</a>
+                    <a href="#">National Day of Action</a>
+                    <a href="#">Report Trends &amp; Issues</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">CLE &amp; Learning</a>
+              <div class="aila-research-menu">
+                <div class="aila-research-menu-grid aila-equal-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Events</p>
+                    <a href="#">Conferences</a>
+                    <a href="#">Seminars</a>
+                    <a href="#">Roundtables</a>
+                    <a href="#">Calendar</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">OnDemand</p>
+                    <a href="#">eLearning</a>
+                    <a href="#">Online Courses</a>
+                    <a href="#">Tutorial Videos</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">CLE &amp; Tuition</p>
+                    <a href="#">CLE Center</a>
+                    <a href="#">Tuition Assistance</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">Career &amp; Law Firm Resources</a>
+              <div class="aila-research-menu aila-career-menu">
+                <div class="aila-research-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Career</p>
+                    <a href="#">Career Center</a>
+                    <a href="#">Jobs at AILA</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Law Firm Resources</p>
+                    <a href="#">Practice Management</a>
+                    <a href="#">Discounts &amp; Alliance Programs</a>
+                    <a href="#">Paralegal Tools (AAPs Only)</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Professional Support</p>
+                    <a href="#">Ethics</a>
+                    <a href="#">Lawyer Well-Being</a>
+                    <a href="#">Diversity, Equity &amp; Inclusion</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">Membership &amp; Community</a>
+              <div class="aila-research-menu aila-career-menu">
+                <div class="aila-research-menu-grid aila-membership-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Member Benefits</p>
+                    <a href="#">Discounts &amp; Alliance Programs</a>
+                    <a href="#">For New Members</a>
+                    <p class="aila-research-menu-heading aila-menu-subheading">Get Involved</p>
+                    <a href="#">Volunteer with AILA National</a>
+                    <a href="#">Pro Bono Opportunities &amp; Resources</a>
+                    <a href="#">Citizenship Day</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Directories</p>
+                    <a href="#">Member Directory</a>
+                    <a href="#">International Associates Directory</a>
+                    <a href="#">Paralegals Directory</a>
+                    <a href="#">Group Directory</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Connect</p>
+                    <a href="#">Chapters</a>
+                    <a href="#">National Committees</a>
+                    <a href="#">Practice Area Sections</a>
+                    <a href="#">Interest Groups</a>
+                    <a href="#">Message Center</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">About AILA</a>
+              <div class="aila-research-menu aila-career-menu">
+                <div class="aila-research-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">AILA National</p>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Jobs at AILA</a>
+                    <a href="#">Annual Awards</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Leadership &amp; Governance</p>
+                    <a href="#">AILA Leadership</a>
+                    <a href="#">Board &amp; Annual Meetings</a>
+                    <a href="#">Bylaws</a>
+                    <a href="#">National Elections</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">AILA Policies</p>
+                    <a href="#">Academic Adoption of Publications</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main Navigation - Logged Out -->
+        <nav class="aila-main-nav aila-main-nav-logged-out" aria-label="Primary navigation">
+          <ul>
             <li><a href="#">Membership</a></li>
-            <li><a href="#">Research Tools</a></li>
-            <li><a href="#">Resources</a></li>
-            <li><a href="#">Events and Training</a></li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">CLE &amp; Learning</a>
+              <div class="aila-research-menu">
+                <div class="aila-research-menu-grid aila-equal-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Events</p>
+                    <a href="#">Conferences</a>
+                    <a href="#">Seminars</a>
+                    <a href="#">Roundtables</a>
+                    <a href="#">Calendar</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">OnDemand</p>
+                    <a href="#">eLearning</a>
+                    <a href="#">Online Courses</a>
+                    <a href="#">Tutorial Videos</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">CLE &amp; Tuition</p>
+                    <a href="#">CLE Center</a>
+                    <a href="#">Tuition Assistance</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">Career &amp; Law Firm Resources</a>
+              <div class="aila-research-menu aila-career-menu">
+                <div class="aila-research-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Career</p>
+                    <a href="#">Career Center</a>
+                    <a href="#">Jobs at AILA</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Law Firm Resources</p>
+                    <a href="#">Practice Management</a>
+                    <a href="#">Discounts &amp; Alliance Programs</a>
+                    <a href="#">Paralegal Tools (AAPs Only)</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Professional Support</p>
+                    <a href="#">Ethics</a>
+                    <a href="#">Lawyer Well-Being</a>
+                    <a href="#">Diversity, Equity &amp; Inclusion</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">Membership &amp; Community</a>
+              <div class="aila-research-menu aila-career-menu">
+                <div class="aila-research-menu-grid aila-membership-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Member Benefits</p>
+                    <a href="#">Discounts &amp; Alliance Programs</a>
+                    <a href="#">For New Members</a>
+                    <p class="aila-research-menu-heading aila-menu-subheading">Get Involved</p>
+                    <a href="#">Volunteer with AILA National</a>
+                    <a href="#">Pro Bono Opportunities &amp; Resources</a>
+                    <a href="#">Citizenship Day</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Directories</p>
+                    <a href="#">Member Directory</a>
+                    <a href="#">International Associates Directory</a>
+                    <a href="#">Paralegals Directory</a>
+                    <a href="#">Group Directory</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Connect</p>
+                    <a href="#">Chapters</a>
+                    <a href="#">National Committees</a>
+                    <a href="#">Practice Area Sections</a>
+                    <a href="#">Interest Groups</a>
+                    <a href="#">Message Center</a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="aila-nav-item">
+              <a href="#" aria-haspopup="true">About AILA</a>
+              <div class="aila-research-menu aila-career-menu">
+                <div class="aila-research-menu-grid">
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">AILA National</p>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Jobs at AILA</a>
+                    <a href="#">Annual Awards</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">Leadership &amp; Governance</p>
+                    <a href="#">AILA Leadership</a>
+                    <a href="#">Board &amp; Annual Meetings</a>
+                    <a href="#">Bylaws</a>
+                    <a href="#">National Elections</a>
+                  </div>
+                  <div class="aila-research-menu-column">
+                    <p class="aila-research-menu-heading">AILA Policies</p>
+                    <a href="#">Academic Adoption of Publications</a>
+                  </div>
+                </div>
+              </div>
+            </li>
           </ul>
         </nav>
 
       </header>
+
+      <!-- Hero Image -->
+      <div class="hero-image-section">
+        <img src="home-hero.jpg" alt="AILA home" class="hero-image" />
+      </div>
 
       <!-- Sample page content below header -->
       <main class="hero">
@@ -647,6 +1109,8 @@
               <li>Help Center and AILA Shop use white utility icons with hover text.</li>
               <li>Hello, Molly opens a structured My AILA dropdown.</li>
               <li>The hamburger menu is removed from the desktop header.</li>
+              <li>Click 'Sign In' to see the logged-in state</li>
+              <li>Under the 'Hello, Molly' menu, click 'Log Out' to see the logged-out state</li>
             </ul>
           </div>
         </aside>
@@ -660,7 +1124,11 @@
     document.addEventListener("DOMContentLoaded", function () {
       const accountButton = document.querySelector(".aila-account-trigger");
       const dropdown = document.querySelector(".aila-dropdown");
+      const header = document.querySelector(".aila-header");
+      const logoutLink = document.querySelector(".aila-logout");
+      const loginBtn = document.querySelector(".aila-login-btn");
 
+      // Account menu toggle
       accountButton.addEventListener("click", function (event) {
         event.stopPropagation();
 
@@ -668,6 +1136,7 @@
         accountButton.setAttribute("aria-expanded", String(isOpen));
       });
 
+      // Close dropdown when clicking outside
       document.addEventListener("click", function (event) {
         const account = document.querySelector(".aila-account");
 
@@ -677,11 +1146,30 @@
         }
       });
 
+      // Close dropdown on Escape key
       document.addEventListener("keydown", function (event) {
         if (event.key === "Escape") {
           dropdown.classList.remove("is-open");
           accountButton.setAttribute("aria-expanded", "false");
         }
+      });
+
+      // Handle logout
+      logoutLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        header.classList.add("logged-out");
+        dropdown.classList.remove("is-open");
+        accountButton.setAttribute("aria-expanded", "false");
+        document.querySelector(".promo-bar").style.backgroundColor = "#FCE1D6";
+        document.querySelector(".promo-bar").textContent = "This is the banner color for alerts.";
+      });
+
+      // Handle login
+      loginBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        header.classList.remove("logged-out");
+        document.querySelector(".promo-bar").style.backgroundColor = "#d1ece6";
+        document.querySelector(".promo-bar").textContent = "Deadline Extended - Now Save 25% Off the NEW Kurzban's Through August 20!";
       });
     });
   </script>
