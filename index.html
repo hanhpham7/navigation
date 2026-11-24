@@ -137,10 +137,10 @@
     ========================= */
 
     .aila-search {
-      width: 460px;
+      width: 560px;
       position: absolute;
-      left: calc(50% - 65px);
-      transform: translateX(-50%);
+      left: 0;
+      transform: none;
     }
 
     .aila-search label {
@@ -184,6 +184,21 @@
     .aila-search input:focus {
       border-color: #7dd3fc;
       box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.45);
+    }
+
+    .aila-lawyer-link {
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 28px;
+      white-space: nowrap;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .aila-lawyer-link:hover,
+    .aila-lawyer-link:focus-visible {
+      color: #bae6fc;
     }
 
     /* =========================
@@ -656,6 +671,10 @@
         transform: none;
       }
 
+      .aila-lawyer-link {
+        line-height: 28px;
+      }
+
       .aila-main-nav ul {
         overflow-x: auto;
       }
@@ -711,6 +730,8 @@
                 <path d="m20 20-4-4"></path>
               </svg>
             </div>
+
+            <a class="aila-lawyer-link" href="#">Find an Immigration Lawyer</a>
 
             <!-- Help Center -->
             <button class="aila-icon-btn" type="button" title="Help Center" aria-label="Help Center">
