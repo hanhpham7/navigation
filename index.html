@@ -112,12 +112,15 @@
       align-items: center;
       justify-content: flex-start;
       grid-column: 1;
-      grid-row: 1;
+      grid-row: 1 / -1;
+      position: relative;
+      z-index: 1;
       padding: 4px 8px 4px 16px;
     }
 
     .aila-logo img {
-      height: 50px;
+      height: 88px;
+      max-height: 100%;
       width: auto;
       display: block;
     }
@@ -190,7 +193,7 @@
 
     .aila-lawyer-link {
       color: white;
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 600;
       line-height: 28px;
       white-space: nowrap;
@@ -391,6 +394,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 32px;
+      padding-left: 113px;
       white-space: nowrap;
     }
 
